@@ -1,0 +1,109 @@
+@use 'src/scss/base/variables' as v;
+@use 'src/scss/base/mixins' as m;
+
+.planes {
+    background-color: v.$secundario;
+
+    h2 {
+        color: v.$blanco;
+    }
+
+    .descripcion {
+        color: v.$blanco;
+    }
+}
+
+.nuestros-planes {
+    display: flex;
+    flex-direction: column;
+
+    @include m.tablet { 
+        flex-direction: row;
+        max-width: 80rem;
+        margin: 10rem auto 0 auto;
+    }
+
+    .plan {
+
+        @include m.tablet { 
+            border: none;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+
+            }
+        }
+
+        flex-grow: 1;
+        background-color: v.$blanco;
+        padding: 16rem 4rem 4rem 4rem;
+
+        border-bottom: 2px solid #e1e1e1;
+
+        &.plan-inicio {
+            background-image: url(/build/img/icono_inicio.svg);
+            background-repeat: no-repeat;
+            background-position: 50% 2rem;
+            background-size: 10rem;
+        }
+
+        &.plan-negocio{
+            background-image: url(/build/img/icono_negocio.svg);
+            background-repeat: no-repeat;
+            background-position: 50% 2rem;
+            background-size: 10rem;
+            background-color: v.$primario;
+            order: -1;
+
+            @include m.tablet {
+                margin: -5rem 0;
+                padding-top: 21rem;
+                border-radius: 15px;
+                background-position: 50% 7rem;
+                z-index: 100;
+
+                &.plan-negocio{
+                    order: 0;
+                }
+            }
+        }
+
+        &.plan-pro {
+            background-image: url(/build/img/icono_pro.svg);
+            background-repeat: no-repeat;
+            background-position: 50% 2rem;
+            background-size: 10rem;
+        }
+
+        .precio {
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+        }
+
+        .listado {
+
+            li {
+                text-align: center;
+                margin-bottom: 2rem;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .plan-boton {
+            @include m.boton(v.$primario, v.$secundario);
+            border: 2px solid v.$blanco;
+            margin-top: 2rem;
+            
+            @include m.tablet { 
+                display: block;
+            }
+            
+        }
+
+    }
+}

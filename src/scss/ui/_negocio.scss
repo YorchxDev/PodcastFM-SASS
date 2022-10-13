@@ -1,0 +1,27 @@
+@use 'src/scss/base/variables' as v;
+@use 'src/scss/base/mixins' as m;
+
+.negocio {
+    background-color: v.$primario;
+
+
+    .negocio-grid {
+        @include m.tablet { 
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 3rem;
+            align-items: center;
+        }
+    }
+
+    .negocio-imagen {
+
+
+        transition: 0.3s ease-in-out;
+    
+        &:hover {
+            transform: rotate(4deg) scale(1.1);
+        }
+    }
+
+}

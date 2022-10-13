@@ -1,0 +1,26 @@
+@use 'src/scss/base/variables' as v;
+@use 'src/scss/base/mixins' as m;
+
+.crear {
+
+    .crear-grid {
+        @include m.tablet { 
+            @include m.grid(2, 2rem);
+
+            align-items: center;
+
+            .crear-imagen {
+                order: -1;
+            }
+            
+        }
+    }
+
+    .crear-contenido {
+        margin-bottom: 5rem;
+
+        @include m.tablet { 
+            margin-bottom: 0;
+        }
+    }
+}
